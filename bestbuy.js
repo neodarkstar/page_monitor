@@ -4,7 +4,7 @@ module.exports = {
 
     itemLookup: function(item, callback) {
 
-      var apiKey = process.env.bestbuy.apiKey;
+      var apiKey = process.env.BESTBUY_APIKEY;
 
       var options = {
 

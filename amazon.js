@@ -4,9 +4,9 @@ module.exports = {
 
   itemLookup: function(item, callback){
 
-    var apiKey = process.env.amazon.apiKey;
-    var apiSecret = process.env.amazon.apiSecret;
-    var associateId = process.env.amazon.associateId;
+    var apiKey = process.env.AMAZON_APIKEY;
+    var apiSecret = process.env.AMAZON_SECRETKEY;
+    var associateId = process.env.AMAZON_ASSOCIATEID;
 
     prodAdv = aws.createProdAdvClient(apiKey, apiSecret, associateId);
 

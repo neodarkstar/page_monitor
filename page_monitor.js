@@ -3,7 +3,7 @@ var cheerio = require('cheerio');
 var nodemailer = require('nodemailer');
 var MongoClient = require('mongodb').MongoClient;
 var moment = require('moment');
-var q = require('q');
+var Q = require('q');
 var api = require('./api.js');
 
 var url = 'mongodb://localhost:27017/page_monitor';
@@ -21,7 +21,7 @@ function init(){
 
 			execute(db);
 
-			setInterval(execute, 30000, db);
+			setInterval(execute, 45000, db);
 
 	});
 

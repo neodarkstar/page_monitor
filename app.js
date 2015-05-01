@@ -49,8 +49,6 @@ function execute(db){
 
 				});
 
-
-
 			});
 
 		});

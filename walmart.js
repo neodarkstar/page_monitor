@@ -4,7 +4,7 @@ module.exports = {
 
     itemLookup: function(item, callback) {
 
-      var apiKey = process.env.walmart.apiKey;
+      var apiKey = process.env.WALMART_APIKEY;
 
       var options = {
         host: 'api.walmartlabs.com',
@@ -13,6 +13,20 @@ module.exports = {
       };
 
       var request = http.request(options, function(response){
+
+        if(response.statusCode !== 200){
+
+          console.log('Walmart Error : ' + response.statusCode );
+
+          callback({
+
+            apiResult: response.statusCode,
+            isAvailable: function(){
+              return false;
+            }
+          });
+          return;
+        }
 
         var body = '';
 
