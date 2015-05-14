@@ -15,7 +15,7 @@ module.exports = {
       callback({
         apiResult: result,
         isAvailable: function(){
-          if(result.Items.Item.OfferSummary.TotalNew > 0) return true;
+	  if(result.Items.Item && result.Items.Item.OfferSummary.TotalNew > 0) return true;
           return false;
           }
       });

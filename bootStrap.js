@@ -93,12 +93,12 @@ var items = [
 	},
 	{
 		item: {
-			name: 'Lucina',
-			id: 'B00V86BJV4'
+			name: 'Robin',
+			id: 'B00V86BRHU'
 		},
 		active: true,
 		selector: '#priceBlock',
-		url:'http://www.amazon.com/gp/product/B00V86BJV4',
+		url:'http://www.amazon.com/gp/product/B00V86BRHU',
 		store: 'Amazon US',
 		api: 'amazon',
 		results: '',
@@ -106,12 +106,12 @@ var items = [
 	},
 	{
 		item: {
-			name: 'Robin',
-			id: 'B00V86BRHU'
+			name: 'Silver Mario',
+			id: 'B00WKJ0LA8'
 		},
 		active: true,
 		selector: '#priceBlock',
-		url:'http://www.amazon.com/gp/product/B00V86BRHU',
+		url:'http://www.amazon.com/dp/B00WKJ0LA8',
 		store: 'Amazon US',
 		api: 'amazon',
 		results: '',
@@ -138,6 +138,19 @@ var items = [
 		active: true,
 		selector: '#priceblock-wrapper-wrapper',
 		url:'http://www.bestbuy.com/site/nintendo-amiibo-figure-super-smash-bros-series-lucina-multi/5711027.p',
+		store: 'Best Buy',
+		api: 'bestbuy',
+		results: '',
+		notify : ['John', 'Eddie', 'Raidel']
+	},
+	{
+		item: {
+			name: 'Silver Mario',
+			id: '7532038'
+		},
+		active: true,
+		selector: '#priceblock-wrapper-wrapper',
+		url: 'http://www.bestbuy.com/site/nintendo-amiibo-figure-super-mario-series-mario-silver-edition-multi/7532038.p',
 		store: 'Best Buy',
 		api: 'bestbuy',
 		results: '',
