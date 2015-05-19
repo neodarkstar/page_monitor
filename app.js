@@ -21,7 +21,7 @@ function init(){
 
 			execute(db);
 
-			setInterval(execute, 30000, db);
+			setInterval(execute, 60000, db);
 
 	});
 

@@ -16,19 +16,23 @@ module.exports = {
         apiResult: result,
         isAvailable: function(){
 
-          var offerSummary = result.Items.Item.OfferSummary;
+          if(result.Items.Item){
+            var offerSummary = result.Items.Item.OfferSummary;
 
-          if(offerSummary.TotalNew > 0 && offerSummary.LowestNewPrice.Amount === '1299'){
-            return true;
+            if(offerSummary.TotalNew > 0 && offerSummary.LowestNewPrice.Amount === '1299'){
+              return true;
+            }
+
           }
 
           return false;
-          }
+
+        }
+
       });
 
     });
 
   }
-
 
 };
