@@ -142,6 +142,19 @@ var items = [
 		api: 'bestbuy',
 		results: '',
 		notify : ['John', 'Eddie', 'Raidel']
+	},
+	{
+		item: {
+			name: 'Marth',
+			id: 'B00N4ABOXU'
+		},
+		active: true,
+		selector: '#priceblock-wrapper-wrapper',
+		url:'http://www.amazon.com/gp/product/B00N4ABOXU/',
+		store: 'Amazon',
+		api: 'amazon',
+		results: '',
+		notify : ['John']
 	}
 ];
 

@@ -15,7 +15,13 @@ module.exports = {
       callback({
         apiResult: result,
         isAvailable: function(){
-          if(result.Items.Item.OfferSummary.TotalNew > 0) return true;
+
+          var offerSummary = result.Items.Item.OfferSummary;
+
+          if(offerSummary.TotalNew > 0 && offerSummary.LowestNewPrice.Amount === '1299'){
+            return true;
+          }
+
           return false;
           }
       });
