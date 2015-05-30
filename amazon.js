@@ -15,14 +15,23 @@ module.exports = {
       callback({
         apiResult: result,
         isAvailable: function(){
-	         if(result.Items.Item && result.Items.Item.OfferSummary.TotalNew > 0) return true;
-           return false;
+
+          if(result.Items.Item){
+            var offerSummary = result.Items.Item.OfferSummary;
+
+            if(offerSummary.TotalNew > 0 && offerSummary.LowestNewPrice.Amount === '1299'){
+              return true;
+            }
+
           }
+          return false;
+
+        }
+
       });
 
     });
 
   }
-
 
 };

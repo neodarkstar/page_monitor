@@ -31,6 +31,7 @@ var items = [
 		},
 		active: true,
 		api: 'target',
+		available: false,
 		selector: '.butonblock',
 		url: 'http://www.target.com/p/nintendo-lucina-amiibo-figure/-/A-17318489',
 		store: 'Target',
@@ -45,6 +46,7 @@ var items = [
 		},
 		active: true,
 		api: 'target',
+		available: false,
 		selector: '.butonblock',
 		url: 'http://www.target.com/p/nintendo-amiibo-jigglypuff-target-exclusive/-/A-17315174',
 		store: 'Target',
@@ -59,6 +61,7 @@ var items = [
 		},
 		active: true,
 		api: 'target',
+		available: false,
 		selector: '.butonblock',
 		url: 'http://www.target.com/p/nintendo-robin-amiibo-figure/-/A-17318490',
 		store: 'Target',
@@ -71,6 +74,7 @@ var items = [
 			id: '44606833'
 		},
 		active: true,
+		available: false,
 		selector: '.price-display-oos',
 		url:'http://www.walmart.com/ip/Lucina-Super-Smash-Bros-Series-Amiibo-Nintendo-WiiU-or-Nintendo-3DS/44606833',
 		store: 'Walmart',
@@ -84,6 +88,7 @@ var items = [
 			id: '44606828'
 		},
 		active: true,
+		available: false,
 		selector: '.price-display-oos',
 		url:'http://www.walmart.com/ip/Robin-Super-Smash-Bros-Series-Amiibo-Nintendo-WiiU-or-Nintendo-3DS/44606828',
 		store: 'Walmart',
@@ -97,6 +102,7 @@ var items = [
 			id: 'B00V86BRHU'
 		},
 		active: true,
+		available: false,
 		selector: '#priceBlock',
 		url:'http://www.amazon.com/gp/product/B00V86BRHU',
 		store: 'Amazon US',
@@ -110,6 +116,7 @@ var items = [
 			id: 'B00WKJ0LA8'
 		},
 		active: true,
+		available: false,
 		selector: '#priceBlock',
 		url:'http://www.amazon.com/dp/B00WKJ0LA8',
 		store: 'Amazon US',
@@ -123,6 +130,7 @@ var items = [
 			id: '5712035'
 		},
 		active: true,
+		available: false,
 		selector: '#priceblock-wrapper-wrapper',
 		url:'http://www.bestbuy.com/site/nintendo-amiibo-figure-super-smash-bros-series-robin-multi/5712035.p',
 		store: 'Best Buy',
@@ -136,6 +144,7 @@ var items = [
 			id: '5711027'
 		},
 		active: true,
+		available: false,
 		selector: '#priceblock-wrapper-wrapper',
 		url:'http://www.bestbuy.com/site/nintendo-amiibo-figure-super-smash-bros-series-lucina-multi/5711027.p',
 		store: 'Best Buy',
@@ -145,10 +154,24 @@ var items = [
 	},
 	{
 		item: {
+			name: 'Marth',
+			id: 'B00N4ABOXU'
+		},
+		active: true,
+		available: false,
+		selector: '#priceblock-wrapper-wrapper',
+		url:'http://www.amazon.com/gp/product/B00N4ABOXU/',
+		store: 'Amazon',
+		api: 'amazon',
+		results: '',
+		notify : ['John']
+	},{
+		item:{
 			name: 'Silver Mario',
 			id: '7532038'
 		},
 		active: true,
+		available: false,
 		selector: '#priceblock-wrapper-wrapper',
 		url: 'http://www.bestbuy.com/site/nintendo-amiibo-figure-super-mario-series-mario-silver-edition-multi/7532038.p',
 		store: 'Best Buy',
