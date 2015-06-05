@@ -43,18 +43,21 @@ function execute(db){
 
 				api.itemLookup(item.api, item.item.id, function(apiResult){
 
-						if(apiResult.isAvailable() && item.available === false){
+					var isAvailable = apiResult.isAvailable();
+
+
+						if(isAvailable && item.available === false){
 
 							itemsCollection.update({ "item.id": item.item.id }, { $set : { 'available' : true }});
 
 							notify(item);
-						} else if(apiResult.isAvailable() === false && item.available === true){
+						} else if(isAvailable === false && item.available === true){
 
 							itemsCollection.update({ "item.id": item.item.id }, { $set : { 'available' : false }});
 
 						}
 
-						console.log(item.store + ' ' + item.item.name + ' ' + apiResult.isAvailable());
+						console.log(item.store + ' ' + item.item.name + ' ' + isAvailable);
 
 				});
 

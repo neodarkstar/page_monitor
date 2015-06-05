@@ -9,7 +9,7 @@ module.exports = {
       var options = {
 
         host: 'api.remix.bestbuy.com',
-        path: '/v1/products/' + item + '.json?apiKey=' + apiKey,
+        path: '/v1/products(sku=' + item + ')?format=json&apiKey=' + apiKey,
         method: 'GET'
       };
 
@@ -29,7 +29,14 @@ module.exports = {
 
             apiResult: apiResult,
             isAvailable: function(){
-              return apiResult.onSale;
+
+              var products = apiResult.products;
+
+              if(products && products.length > 0){
+                return products[0].onSale;
+              }
+
+              return false;
             }
 
           });
