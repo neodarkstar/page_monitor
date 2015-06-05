@@ -35,7 +35,9 @@ var items = [
 		store: 'Best Buy',
 		api: 'bestbuy',
 		results: '',
-		notify : ['John', 'Eddie', 'Raidel']
+		notify : ['John', 'Eddie', 'Raidel'],
+		lastAvailable: null,
+		lastChecked: null
 	}
 ];
 

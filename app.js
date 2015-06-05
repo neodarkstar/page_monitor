@@ -45,13 +45,14 @@ function execute(db){
 
 					var isAvailable = apiResult.isAvailable();
 
+					itemsCollection.update({ "item.id": item.item.id }, { $set : { 'lastChecked': moment().toString()}});
 
-						if(isAvailable && item.available === false){
+						if(isAvailable && !item.available){
 
-							itemsCollection.update({ "item.id": item.item.id }, { $set : { 'available' : true }});
+							itemsCollection.update({ "item.id": item.item.id }, { $set : { 'available' : true , 'lastChecked': moment().toString(), 'lastAvailable': moment().toString()}});
 
 							notify(item);
-						} else if(isAvailable === false && item.available === true){
+						} else if(!isAvailable && item.available){
 
 							itemsCollection.update({ "item.id": item.item.id }, { $set : { 'available' : false }});
 
