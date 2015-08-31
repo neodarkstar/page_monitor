@@ -42,7 +42,7 @@ module.exports = {
 
             apiResult: apiResult,
             isAvailable: function(){
-              return apiResult.availableOnline;
+              return true;
             }
           });
 
