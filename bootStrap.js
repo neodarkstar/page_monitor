@@ -38,6 +38,74 @@ var items = [
 		notify : ['John', 'Eddie', 'Raidel'],
 		lastAvailable: null,
 		lastChecked: null
+	},
+	{
+		item:{
+			name: 'Ganondorf',
+			id: '24012008',
+			dpci: '207-03-4002'
+		},
+		active: true,
+		available: false,
+		selector: '.butonblock',
+		url: 'http://www.target.com/p/nintendo-ganondorf-amiibo-figure/-/A-24012008',
+		store: 'Target',
+		api: 'target',
+		results: '',
+		notify : ['John', 'Eddie', 'Raidel'],
+		lastAvailable: null,
+		lastChecked: null
+	},
+	{
+		item:{
+			name: 'Zero Suit Samus',
+			id: '24012007',
+			dpci: '207-03-4001'
+		},
+		active: true,
+		available: false,
+		selector: '.butonblock',
+		url: 'http://www.target.com/p/nintendo-zero-suit-samus-amiibo-figure/-/A-24012007',
+		store: 'Target',
+		api: 'target',
+		results: '',
+		notify : ['John', 'Eddie', 'Raidel'],
+		lastAvailable: null,
+		lastChecked: null
+	},
+	{
+		item:{
+			name: 'Nintendo Classic Mario',
+			id: '24012006',
+			dpci: '207-03-4000'
+		},
+		active: true,
+		available: false,
+		selector: '.butonblock',
+		url: 'http://www.target.com/p/nintendo-classic-mario-30th-anniversary-amiibo-figure/-/A-24012006',
+		store: 'Target',
+		api: 'target',
+		results: '',
+		notify : ['John', 'Eddie', 'Raidel'],
+		lastAvailable: null,
+		lastChecked: null
+	},
+	{
+		item:{
+			name: 'Olimar & Pikmin',
+			id: '24012009',
+			dpci: '207-03-4003'
+		},
+		active: true,
+		available: false,
+		selector: '.butonblock',
+		url: 'http://www.target.com/p/nintendo-olimar-pikmin-amiibo-figure/-/A-24012009',
+		store: 'Target',
+		api: 'target',
+		results: '',
+		notify : ['John', 'Eddie', 'Raidel'],
+		lastAvailable: null,
+		lastChecked: null
 	}
 ];
 
