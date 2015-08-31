@@ -25,30 +25,14 @@ var users = [
 var items = [
 	{
 		item:{
-			name: 'Dark Pit',
-			id: '6376118'
-		},
-		active: true,
-		available: false,
-		selector: '#priceblock-wrapper-wrapper',
-		url: 'http://www.bestbuy.com/site/multi/6376118.p?skuId=6376118',
-		store: 'Best Buy',
-		api: 'bestbuy',
-		results: '',
-		notify : ['John', 'Eddie', 'Raidel'],
-		lastAvailable: null,
-		lastChecked: null
-	},
-	{
-		item:{
 			name: 'Ganondorf',
 			id: '24012008',
 			dpci: '207-03-4002'
 		},
 		active: true,
 		available: false,
-		selector: '.butonblock',
-		url: 'http://www.target.com/p/nintendo-ganondorf-amiibo-figure/-/A-24012008',
+		selector: '#AddToCartAreaId',
+		url: 'http://m.target.com/p/nintendo-ganondorf-amiibo-figure/-/A-24012008',
 		store: 'Target',
 		api: 'target',
 		results: '',
@@ -64,8 +48,8 @@ var items = [
 		},
 		active: true,
 		available: false,
-		selector: '.butonblock',
-		url: 'http://www.target.com/p/nintendo-zero-suit-samus-amiibo-figure/-/A-24012007',
+		selector: '#AddToCartAreaId',
+		url: 'http://m.target.com/p/nintendo-zero-suit-samus-amiibo-figure/-/A-24012007',
 		store: 'Target',
 		api: 'target',
 		results: '',
@@ -81,8 +65,8 @@ var items = [
 		},
 		active: true,
 		available: false,
-		selector: '.butonblock',
-		url: 'http://www.target.com/p/nintendo-classic-mario-30th-anniversary-amiibo-figure/-/A-24012006',
+		selector: '#AddToCartAreaId',
+		url: 'http://m.target.com/p/nintendo-classic-mario-30th-anniversary-amiibo-figure/-/A-24012006',
 		store: 'Target',
 		api: 'target',
 		results: '',
@@ -98,15 +82,28 @@ var items = [
 		},
 		active: true,
 		available: false,
-		selector: '.butonblock',
-		url: 'http://www.target.com/p/nintendo-olimar-pikmin-amiibo-figure/-/A-24012009',
+		selector: '#AddToCartAreaId',
+		url: 'http://m.target.com/p/nintendo-olimar-pikmin-amiibo-figure/-/A-24012009',
 		store: 'Target',
 		api: 'target',
 		results: '',
 		notify : ['John', 'Eddie', 'Raidel'],
 		lastAvailable: null,
 		lastChecked: null
-	}
+	},
+ 	{
+ 		item: {
+ 			name: 'Shovel Knight',
+ 			id: '4480901'
+ 		},
+ 		active: true,
+ 		selector: '#priceblock-wrapper-wrapper',
+ 		url:'http://www.bestbuy.com/site/nintendo-amiibo-figure-shovel-knight/4480901.p',
+ 		store: 'Best Buy',
+ 		api: 'bestbuy',
+ 		results: '',
+ 		notify : ['John', 'Eddie', 'Raidel']
+ 	}
 ];
 
 
