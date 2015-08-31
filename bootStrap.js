@@ -36,7 +36,7 @@ var items = [
 		store: 'Target',
 		api: 'target',
 		results: '',
-		notify : ['John', 'Eddie', 'Raidel'],
+		notify : ['John', 'Raidel'],
 		lastAvailable: null,
 		lastChecked: null
 	},
@@ -53,7 +53,7 @@ var items = [
 		store: 'Target',
 		api: 'target',
 		results: '',
-		notify : ['John', 'Eddie', 'Raidel'],
+		notify : ['John', 'Raidel'],
 		lastAvailable: null,
 		lastChecked: null
 	},
@@ -70,7 +70,7 @@ var items = [
 		store: 'Target',
 		api: 'target',
 		results: '',
-		notify : ['John', 'Eddie', 'Raidel'],
+		notify : ['John', 'Raidel'],
 		lastAvailable: null,
 		lastChecked: null
 	},
@@ -87,7 +87,7 @@ var items = [
 		store: 'Target',
 		api: 'target',
 		results: '',
-		notify : ['John', 'Eddie', 'Raidel'],
+		notify : ['John', 'Raidel'],
 		lastAvailable: null,
 		lastChecked: null
 	},
