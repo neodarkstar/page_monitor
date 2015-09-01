@@ -17,7 +17,7 @@ var users = [
 	{
 		name: 'John',
 		email: '',
-		text: '3054913991@tmomail.net'
+		text: 'johnllombart@gmail.com'
 	}
 
 ];
