@@ -6,7 +6,7 @@ var moment = require('moment');
 var q = require('q');
 var url = 'mongodb://localhost:27017/page_monitor';
 var api = require('./api.js');
-var amqp = require('amqplib');
+var amqp = require('amqplib/callback_api');
 var when = require('when');
 
 // Main portion of the code
@@ -18,15 +18,11 @@ function init(){
 	MongoClient.connect(url, function(err, db){
 
 		console.log("Connected correctly to server");
-
 			execute(db);
-
 			setInterval(execute, 60000, db);
-
 	});
 
 }
-
 
 function execute(db){
 
@@ -51,7 +47,8 @@ function execute(db){
 
 							itemsCollection.update({ "item.id": item.item.id }, { $set : { 'available' : true , 'lastChecked': moment().toString(), 'lastAvailable': moment().toString()}});
 
-							notify(item);
+							publish(item);
+
 						} else if(!isAvailable && item.available){
 
 							itemsCollection.update({ "item.id": item.item.id }, { $set : { 'available' : false }});
@@ -59,6 +56,8 @@ function execute(db){
 						}
 
 						console.log(item.store + ' ' + item.item.name + ' ' + isAvailable);
+
+
 
 				});
 
@@ -69,26 +68,23 @@ function execute(db){
 	});
 }
 
-function notify(item){
+function publish(item){
 
-	amqp.connect('amqp://localhost').then(function(conn) {
-	  return when(conn.createChannel().then(function(ch) {
-	    var q = 'email';
-	    var msg = {
+	amqp.connect('amqp://localhost', function(err, conn) {
+	  conn.createChannel(function(err, ch) {
+	    var ex = 'notifications';
+			var msg = {
 				store: item.store,
-				item: item.item.name,
+				name: item.item.name,
 				notify: item.notify,
 				url: item.url
 			};
 
-	    var ok = ch.assertQueue(q, {durable: false});
+	    ch.assertExchange(ex, 'fanout', {durable: false});
+	    ch.publish(ex, '', new Buffer(JSON.stringify(msg)));
+	    console.log(" [x] Sent %s", msg.name);
+	  });
 
-	    return ok.then(function(_qok) {
-	      ch.sendToQueue(q, new Buffer(JSON.stringify(msg)));
-	      console.log(" [x] Sent '%s'", 'Item: ' + msg.item + ' Store: ' + msg.store);
-	      return ch.close();
-	    });
-	  })).ensure(function() { conn.close(); });
-	}).then(null, console.warn);
+	});
 
 }

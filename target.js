@@ -35,11 +35,15 @@ module.exports = {
 
         pjs.on('exit', function(code){
 
+          var re = /unavailable/i;
+
+          var unavailable = response.match(re);
+
           callback({
             apiResult: response,
             isAvailable: function(){
-              if(response) return true;
-              return false;
+              if(unavailable) return false;
+              return true;
             }
           });
 

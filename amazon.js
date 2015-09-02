@@ -19,8 +19,6 @@ module.exports = {
           if(result.Items.Item){
             var offerSummary = result.Items.Item.OfferSummary;
 
-            console.log(offerSummary);
-
             if(offerSummary.TotalNew > 0 && parseInt(offerSummary.LowestNewPrice.Amount) <= 1299){
               return true;
             }
