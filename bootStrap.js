@@ -103,6 +103,19 @@ var items = [
  		api: 'bestbuy',
  		results: '',
  		notify : ['John', 'Eddie', 'Raidel']
+ 	},
+ 	{
+ 		item: {
+ 			name: 'Street Fighter V Collector\'s Edition',
+ 			id: '4479602'
+ 		},
+ 		active: true,
+ 		selector: '#priceblock-wrapper-wrapper',
+ 		url:'http://www.bestbuy.com/site/street-fighter-v-collectors-edition-playstation-4/4479602.p',
+ 		store: 'Best Buy',
+ 		api: 'bestbuy',
+ 		results: '',
+ 		notify : ['Raidel']
  	}
 ];
 
