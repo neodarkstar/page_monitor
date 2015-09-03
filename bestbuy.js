@@ -33,7 +33,7 @@ module.exports = {
               var products = apiResult.products;
 
               if(products && products.length > 0){
-                return products[0].onSale;
+                return products[0].onSale || products[0].onlineAvailability || products[0].inStoreAvailability;
               }
 
               return false;
