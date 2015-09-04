@@ -47,7 +47,7 @@ function execute(db){
 
 							itemsCollection.update({ "item.id": item.item.id }, { $set : { 'available' : true , 'lastChecked': moment().toString(), 'lastAvailable': moment().toString()}});
 
-							publish(item);
+							publishTopic('notifications.available', item);
 
 						} else if(!isAvailable && item.available){
 
@@ -55,9 +55,9 @@ function execute(db){
 
 						}
 
+						publishTopic('notifications.log', item);
+
 						console.log(item.store + ' ' + item.item.name + ' ' + isAvailable);
-
-
 
 				});
 
@@ -67,6 +67,28 @@ function execute(db){
 
 	});
 }
+
+function publishTopic(key, item){
+
+	amqp.connect('amqp://localhost', function(err, conn) {
+	  conn.createChannel(function(err, ch) {
+	    var ex = 'notifications';
+			var msg = {
+				store: item.store,
+				name: item.item.name,
+				notify: item.notify,
+				url: item.url
+			};
+
+			ch.assertExchange(ex, 'topic', {durable: false});
+	    ch.publish(ex, key, new Buffer(JSON.stringify(msg)));
+	    console.log(" [x] Sent %s:'%s'", key, msg.name);
+	  });
+
+	});
+
+}
+
 
 function publish(item){
 
