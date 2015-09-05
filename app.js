@@ -78,8 +78,10 @@ function publishTopic(key, item){
 				store: item.store,
 				name: item.item.name,
 				notify: item.notify,
-				url: item.url
+				url: item.url,
+				available: item.available
 			};
+
 
 			ch.assertExchange(ex, 'topic', {durable: false});
 	    ch.publish(ex, key, new Buffer(JSON.stringify(msg)));
