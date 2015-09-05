@@ -74,6 +74,7 @@ function publishTopic(key, item){
 	  conn.createChannel(function(err, ch) {
 	    var ex = 'notifications';
 			var msg = {
+				id: item._id,
 				store: item.store,
 				name: item.item.name,
 				notify: item.notify,
