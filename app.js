@@ -9,8 +9,16 @@ var api = require('./api.js');
 var amqp = require('amqplib/callback_api');
 var when = require('when');
 var _ = require('lodash');
+var Q = require('q');
 
 // Main portion of the code
+
+var connection = Q.defer();
+
+amqp.connect('amqp://localhost', function(err, conn) {
+	connection.resolve(conn);
+});
+
 
 init();
 
@@ -70,20 +78,18 @@ function execute(db){
 }
 
 function publishTopic(key, item){
+	  connection.promise.then(function(conn){
+			conn.createChannel(function(err, ch) {
+		    var ex = 'notifications';
 
-	amqp.connect('amqp://localhost', function(err, conn) {
-	  conn.createChannel(function(err, ch) {
-	    var ex = 'notifications';
+				var msg = buildItemsList([item])[0];
 
-			var msg = buildItemsList([item])[0];
+				ch.assertExchange(ex, 'topic', {durable: false});
+		    ch.publish(ex, key, new Buffer(JSON.stringify(msg)));
+		    console.log(" [x] Sent %s:'%s'", key, msg.name);
+		  });
 
-			ch.assertExchange(ex, 'topic', {durable: false});
-	    ch.publish(ex, key, new Buffer(JSON.stringify(msg)));
-	    console.log(" [x] Sent %s:'%s'", key, msg.name);
-	  });
-
-	});
-
+		})
 }
 
 
