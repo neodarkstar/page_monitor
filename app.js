@@ -8,6 +8,7 @@ var url = 'mongodb://localhost:27017/page_monitor';
 var api = require('./api.js');
 var amqp = require('amqplib/callback_api');
 var when = require('when');
+var _ = require('lodash');
 
 // Main portion of the code
 
@@ -73,15 +74,8 @@ function publishTopic(key, item){
 	amqp.connect('amqp://localhost', function(err, conn) {
 	  conn.createChannel(function(err, ch) {
 	    var ex = 'notifications';
-			var msg = {
-				id: item._id,
-				store: item.store,
-				name: item.item.name,
-				notify: item.notify,
-				url: item.url,
-				available: item.available
-			};
 
+			var msg = buildItemsList([item])[0];
 
 			ch.assertExchange(ex, 'topic', {durable: false});
 	    ch.publish(ex, key, new Buffer(JSON.stringify(msg)));
@@ -111,5 +105,40 @@ function publish(item){
 	  });
 
 	});
+
+}
+
+function buildItemsList(itemList){
+
+  var items = {};
+
+  itemList.forEach(function(item){
+
+    if(!items[item._id]){
+      items[item._id] = {
+        name: item.item.name,
+        id: item._id,
+        stores:[]
+      }
+    }
+
+    items[item._id].stores.push(
+      {
+        api: item.api,
+        id: item.item.id,
+        name: item.store,
+        url: item.url,
+        lastChecked: item.lastChecked,
+        lastAvailable: item.lastAvailable || null,
+        available: item.available || false,
+				users: item.notify
+      }
+    );
+
+  });
+
+  return _.map(items, function(item){
+    return item;
+  });
 
 }
